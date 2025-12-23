@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Setup TOTP</title>
+</head>
+<body>
+
+<h2>Setup TOTP for {{ username }}</h2>
+
+<p>Scan this QR code with Google Authenticator:</p>
+
+{% if qr_url %}
+    <img src="{{ qr_url }}" width="220">
+{% else %}
+    <p style="color:red">QR not generated</p>
+{% endif %}
+
+{% if backup_codes %}
+<h3>Backup Codes (SAVE THEM)</h3>
+<ul>
+    {% for code in backup_codes %}
+        <li><b>{{ code }}</b></li>
+    {% endfor %}
+</ul>
+{% endif %}
+
+<a href="/login">Go to Login</a>
+
+</body>
+</html>
