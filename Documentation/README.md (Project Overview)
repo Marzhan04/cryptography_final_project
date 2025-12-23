@@ -1,0 +1,86 @@
+README.md (Project Overview)
+CryptoVault - Cryptographic Security Suite (Flask)
+Course: MAT364 – Cryptography
+Team: Narikbayeva Aruzhan, Abdibayeva Marzhan,Kenzhegulova Nuray 
+
+Project Overview
+
+CryptoVault is a cryptographic security suite built using Flask. This project demonstrates the integration of various cryptographic techniques, including:
+
+Secure authentication with bcrypt and TOTP
+Secure file encryption (AES-GCM, SHA-256, HMAC)
+Blockchain-based audit ledger using Merkle Trees and Proof of Work (PoW)
+Block mining and validation using PoW
+This project showcases a basic implementation of secure messaging and file encryption, coupled with a blockchain ledger that records important actions (such as file encryption and login).
+
+Project Features
+Authentication: User registration, login with password and TOTP (two-factor authentication).
+File Encryption: Files can be securely encrypted and decrypted using AES-GCM, with integrity verification via SHA-256 and HMAC.
+Blockchain Ledger: Blockchain is used to log events such as login and file encryption, with Merkle Trees and PoW ensuring data integrity.
+Mining: A simple PoW mechanism where blocks are mined by finding a nonce that results in a hash with a required number of leading zeros.
+
+Technologies Used
+Python 3.x
+Flask (Web Framework)
+cryptography (For AES, HMAC, RSA)
+pyotp (For TOTP)
+bcrypt (Password hashing)
+json (For blockchain data storage)
+time (For timestamps)
+
+
+1.How to Run
+Clone this repository:
+git clone https:https://github.com/Marzhan04/cryptography_final_project.git
+2.Install the necessary dependencies:
+python -m venv venv
+source venv/bin/activate  # macOS/Linux
+pip install -r requirements.txt
+3.Run the Flask app:
+flask --app src.app run
+# Or
+python src/app.py
+4.Open your browser and navigate to:
+http://127.0.0.1:5000
+
+
+Project Structure
+
+cryptovault/
+├── README.md
+├── requirements.txt
+├── src/
+│   ├── app.py          # Main Flask application
+│   ├── ledger/         # Blockchain module (Module 4)
+│   ├── auth/           # Authentication module (Module 1)
+│   ├── files/          # File encryption module (Module 3)
+│   └── messaging/      # Messaging module (Module 2)
+├── templates/          # HTML templates
+│   ├── index.html
+│   ├── login.html
+│   ├── encrypt.html
+│   └── ledger.html
+├── docs/               # Documentation files
+│   ├── architecture.md
+│   ├── security_analysis.md
+│   └── user_guide.md
+└── requirements.txt    # Project dependencies
+
+Demo
+
+Registration: Register a new user, then log in using a password and TOTP (Google Authenticator or similar).
+
+File Encryption: Upload a file and encrypt it with a password. The encrypted file will be stored, and its hash will be logged in the blockchain.
+
+Blockchain: Navigate to the blockchain page to view all events (login, file encryption) recorded in the blockchain.
+
+Mining: After events are logged, mine new blocks into the blockchain using Proof of Work, which solves a nonce.
+
+Security Considerations
+Passwords are hashed using bcrypt.
+TOTP (Time-based One-Time Password) is used for multi-factor authentication.
+Files are encrypted using AES-GCM and verified with HMAC for integrity.
+The blockchain ensures that actions (such as login and file encryption) cannot be tampered with.
+
+
+
