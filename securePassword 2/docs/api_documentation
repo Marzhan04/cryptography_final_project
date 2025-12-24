@@ -1,0 +1,85 @@
+4. API Documentation (API Documentation)
+
+4.1. Endpoint: /register
+
+Method: POST
+
+Description: Registers a new user.
+
+Parameters:
+
+Password (line): User's password.
+
+Answer:
+
+200 OK: Password hash in JSON format:
+
+{
+
+"Hashed_password": "$2b$12$Mo3LQ.Cs7h20y/KP1EoUTub6vyAQ3Dh.Qa5/07.9gAt6dIrCirj/W"
+
+}
+
+4.2. Endpoint: /login
+
+Method: POST
+
+Description: Authorises the user, returns the JWT token.
+
+Parameters:
+
+Password (line): User's password.
+
+Totp (line): TOTP code.
+
+Answer:
+
+200 OK: Successful login and JWT token:
+
+{
+
+"Message": "Login successful",
+
+"Token": "<JWT_TOKEN>"
+
+}
+
+4.3. Endpoint: /password_reset_request
+
+Method: POST
+
+Description: Requests password reset, sends email with token.
+
+Parameters:
+
+Email (line): User's email.
+
+Answer:
+
+200 OK: Message that email has been sent:
+
+{
+
+"Message": "Password reset email sent"
+
+}
+
+4.4. Endpoint: /reset_password/<token>
+
+Method: POST
+
+Description: Resets the user password by token.
+
+Parameters:
+
+Password (line): New user password.
+
+Answer:
+
+200 OK: Message about successful password reset:
+
+{
+
+"Message": "Password successfully reset"
+
+}

@@ -1,0 +1,9 @@
+<h2>Decrypted</h2>
+<p>Filename: {{ result.filename }}</p>
+<p>SHA-256: {{ result.file_hash }}</p>
+<p>Plaintext is returned as base64 (for demo):</p>
+<a href="data:application/octet-stream;base64,{{ result.plaintext_base64 }}" download="{{ result.filename }}">
+    <button>Download File</button>
+  </a>
+<textarea rows="10" cols="80">{{ result.plaintext_base64 }}</textarea>
+<a href="/dashboard">Back</a>
